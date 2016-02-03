@@ -13,8 +13,12 @@ class User < ActiveRecord::Base
    :uniqueness => {
      :case_sensitive => false
    }
+
+  validates :name, :presence => true
+
  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
+ has_many :topics
 
   def self.find_for_database_authentication(warden_conditions)
       conditions = warden_conditions.dup

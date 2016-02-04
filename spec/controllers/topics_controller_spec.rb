@@ -10,7 +10,7 @@ let(:my_topic) {Topic.create!(title: "My Topic Title")}
       expect(response).to have_http_status(:success)
     end
 
-    it "assigns Topic.all to topic" do
+    it "assigns topic to Topic.all" do
       get :index
       expect(assigns(:topics)).to eq([my_topic])
     end

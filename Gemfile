@@ -33,3 +33,5 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  # Devise gem
  gem 'devise'
+ # Gem for handling sensitive information, ie. API keys, passwords, etc.
+ gem 'figaro', '1.0'

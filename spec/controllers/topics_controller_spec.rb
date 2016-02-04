@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe TopicsController, type: :controller do
 
+let(:my_topic) {Topic.create!(title: "My Topic Title")}
+
   describe "GET #index" do
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
     end
+
   end
 
   describe "GET #show" do

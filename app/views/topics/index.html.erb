@@ -1,2 +1,23 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<h1 class="text-center">All Blockmarks</h1>
+  <p><%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %></p>
+<br>
+
+
+<div class="container">
+  <div class="row">
+    <% @topics.each do |topic| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <p><%= link_to topic.title, topic %></p>
+            <br>
+            <% topic.bookmarks.each do |bookmark| %>
+              <h6><%= link_to bookmark.url, bookmark.url, :target => '_blank' %></h6>
+              <br>
+            <% end %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -12,7 +12,7 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <p><%= link_to topic.title, topic %>   <%= link_to "Delete Topic", topic, method: :delete, class: 'btn btn-danger-outline btn-sm' %></p>
+            <p><%= link_to topic.title, topic %> - <%= link_to "Delete", topic, method: :delete, class: 'btn btn-danger btn-sm' %></p>
             <br>
             <small>
               <% topic.bookmarks.each do |bookmark| %>

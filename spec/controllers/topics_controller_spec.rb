@@ -10,12 +10,23 @@ let(:my_topic) {Topic.create!(title: "My Topic Title")}
       expect(response).to have_http_status(:success)
     end
 
+    it "assigns Topic.all to topic" do
+      get :index
+      expect(assigns(:topics)).to eq([my_topic])
+    end
+
   end
 
   describe "GET #show" do
-    it "returns http success" do
-      get :show
-      expect(response).to have_http_status(:success)
+
+    it "renders the #show view" do
+      get :show, {id: my_topic.id}
+      expect(response).to render_template :show
+    end
+
+    it "assigns my_topic to @topic" do
+      get :show, {id: my_topic.id}
+      expect(assigns(:topic)).to eq(my_topic)
     end
   end
 

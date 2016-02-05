@@ -9,7 +9,6 @@ if Rails.env.development? || Rails.env.production?
     domain:     'https://api.mailgun.net/v3/app3e205e68d0444fe484e1b09c7b4c7b40.mailgun.org',
     authentication:    :plain,
     content_type:      'text/html'
-    enable_starttls_auto: true
   }
 end
 # Makes debugging *way* easier.

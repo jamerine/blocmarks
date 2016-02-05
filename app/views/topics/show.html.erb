@@ -12,9 +12,7 @@
           <p>
             <%= link_to bookmark.url, bookmark.url %>
             <% if policy(bookmark).update? %>
-               -
-              <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-primary btn-sm' %>
-              <%= link_to "Delete", [@topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %>
+               - <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-primary btn-sm' %>   <%= link_to "Delete", [@topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %>
             <% end %>
           </p>
         <% end %>

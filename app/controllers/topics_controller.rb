@@ -1,4 +1,7 @@
 class TopicsController < ApplicationController
+  include Pundit
+  before_action :authenticate_user!, except: [ :show, :index ]
+
   def index
     @topics = Topic.all
   end
@@ -28,7 +31,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
-
+    authorize @topic
     if @topic.destroy
       flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index

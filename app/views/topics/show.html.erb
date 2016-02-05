@@ -1,18 +1,25 @@
+<%= content_tag_for :div, @topic do %>
 <h1 class="text-center"><%= @topic.title %></h1>
-<p class="text-center"><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm' %></p>
+<% if policy(@topic).destroy? %>
+  <p class="text-center"><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm' %></p>
+<% end %>
 <p><%= link_to "Create Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %></p>
 <br>
 <div class="container">
   <div class="row">
     <ul class="col-md-3">
         <% @bookmarks.each do |bookmark| %>
-          <p><%= link_to bookmark.url, bookmark.url %> -
+          <p>
+            <%= link_to bookmark.url, bookmark.url %>
+            <% if policy(bookmark).update? %>
+               -
               <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-primary btn-sm' %>
               <%= link_to "Delete", [@topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %>
-              </p>
-
+            <% end %>
+          </p>
         <% end %>
       </p>
     </div>
   </div>
 </div>
+<% end %>

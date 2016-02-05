@@ -32,7 +32,9 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  # Bootstrap-sass gem
  gem 'bootstrap-sass'
- # Devise gem
+ # Use devise for Authentication
  gem 'devise'
- # Gem for handling sensitive information, ie. API keys, passwords, etc.
+ # Use figaro for handling sensitive information, ie. API keys, passwords, etc.
  gem 'figaro', '1.0'
+ # Use Pundit for Authorization
+ gem 'pundit'

@@ -7,14 +7,17 @@
 <br>
 <div class="container">
   <div class="row">
-    <ul class="col-md-3">
+    <ul class="col-md-8">
         <% @bookmarks.each do |bookmark| %>
-          <p>
-            <%= link_to bookmark.url, bookmark.url %>
-            <% if policy(bookmark).update? %>
-               - <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-primary btn-sm' %>   <%= link_to "Delete", [@topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %>
-            <% end %>
-          </p>
+          <div class="media">
+            <div class="media-body">
+                <%= link_to bookmark.url, bookmark.url %>
+                <% if policy(bookmark).update? %>
+                   - <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-primary btn-sm' %>   <%= link_to "Delete", [@topic, bookmark], method: :delete, class: 'btn btn-danger btn-sm' %>
+                <% end %>
+                <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+            </div>
+          </div>
         <% end %>
       </p>
     </div>

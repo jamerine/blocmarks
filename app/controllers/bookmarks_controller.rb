@@ -14,7 +14,8 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
 
     if @bookmark.save
-      redirect_to @topic, notice: "Bookmark added succesfully."
+      flash.now[:alert] = "Bookmark added successfully."
+      redirect_to @topic
     else
       flash.now[:alert] = "Error creating bookmark. Please try again."
       render :new

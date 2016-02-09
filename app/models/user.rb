@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :topics, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
          # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
@@ -28,6 +29,10 @@ class User < ActiveRecord::Base
       elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
       end
+  end
+
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
   end
 
 end

@@ -1,5 +1,5 @@
 <%= content_tag_for :div, @topic do %>
-<h1 class="text-center"><%= @topic.title %></h1>
+<h1 class="text-center"><%= "##{@topic.title} "%></h1>
 <% if policy(@topic).destroy? %>
   <p class="text-center"><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm' %></p>
 <% end %>

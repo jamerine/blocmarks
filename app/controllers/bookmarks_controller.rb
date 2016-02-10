@@ -17,7 +17,7 @@ class BookmarksController < ApplicationController
       flash.now[:alert] = "Bookmark added successfully."
       redirect_to @topic
     else
-      flash.now[:alert] = "Error creating bookmark. Please try again."
+      flash.now[:error] = "Error creating bookmark. Please try again."
       render :new
     end
 
@@ -37,7 +37,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to @topic, notice: "Bookmark updated succesfully."
     else
-      flash.now[:alert] = "Error updating bookmark. Please try again."
+      flash.now[:error] = "Error updating bookmark. Please try again."
       render :edit
     end
   end
@@ -50,7 +50,7 @@ class BookmarksController < ApplicationController
       flash[:notice] = "Bookmark was deleted successfully."
       redirect_to @bookmark.topic
     else
-      flash.now[:alert] = "There was an error deleting the bookmark."
+      flash.now[:error] = "There was an error deleting the bookmark."
       render @topic
     end
 

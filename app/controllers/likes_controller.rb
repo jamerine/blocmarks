@@ -16,7 +16,7 @@ class LikesController < ApplicationController
       flash[:notice] = "Bookmark liked!"
       redirect_to [@bookmark.topic]
     else
-      flash.now[:alert] = "Error unliking. Please try again."
+      flash.now[:error] = "Error unliking. Please try again."
       redirect_to [@bookmark.topic]
     end
   end
@@ -30,7 +30,7 @@ class LikesController < ApplicationController
       flash[:notice] = "Bookmark unliked!"
       redirect_to [@bookmark.topic]
     else
-      flash.now[:alert] = "Error unliking. Please try again."
+      flash.now[:error] = "Error unliking. Please try again."
       redirect_to [@bookmark.topic]
     end
   end

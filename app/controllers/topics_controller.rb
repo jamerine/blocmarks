@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   include Pundit
-  before_action :authenticate_user!, except: [ :show, :index ]
+  # before_action :authenticate_user!, except: [ :show, :index ]
 
   def index
     @topics = Topic.all
@@ -24,7 +24,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to @topic, notice: "Topic added succesfully."
     else
-      flash.now[:alert] = "Error creating topic. Please try again."
+      flash.now[:error] = "Error creating topic. Please try again."
       render @topics
     end
   end
@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
       flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index
     else
-      flash[:alert] = "There was an error deleting the topic."
+      flash[:error] = "There was an error deleting the topic."
       redirect_to action: :index
     end
   end

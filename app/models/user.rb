@@ -7,9 +7,8 @@ class User < ActiveRecord::Base
   has_many :topics, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_bookmarks, through: :likes, source: :bookmark
 
-         # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'username'
   attr_accessor :login
 
   validates :username,

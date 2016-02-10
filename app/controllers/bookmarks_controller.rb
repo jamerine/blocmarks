@@ -12,6 +12,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.topic = @topic
     @bookmark.user = current_user
+    authorize @bookmark
 
     if @bookmark.save
       flash.now[:alert] = "Bookmark added successfully."

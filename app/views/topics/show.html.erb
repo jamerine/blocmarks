@@ -3,9 +3,9 @@
 <% if policy(@topic).destroy? %>
   <p class="text-center"><%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger btn-sm' %></p>
 <% end %>
-
+<% if policy(@topic).create? %>
   <p><%= link_to "Create Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %></p>
-
+<% end %>
 
 <br>
 <div class="container">

@@ -38,3 +38,5 @@ source 'https://rubygems.org'
  gem 'figaro', '1.0'
  # Use Pundit for Authorization
  gem 'pundit'
+ # Use Friendly_id to make urls less cryptic
+ gem 'friendly_id'

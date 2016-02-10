@@ -6,7 +6,7 @@ if Rails.env.development? || Rails.env.production?
     address:           'smtp.mailgun.org',
     user_name:         ENV['MAILGUN_SMTP_LOGIN'],
     password:          ENV['MAILGUN_SMTP_PASSWORD'],
-    domain:     'https://api.mailgun.net/v3/app3e205e68d0444fe484e1b09c7b4c7b40.mailgun.org',
+    domain:     'blocmarks-ja.herokuapp.com',
     authentication:    :plain,
     content_type:      'text/html'
   }

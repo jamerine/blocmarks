@@ -28,6 +28,7 @@ class IncomingController < ApplicationController
     @bookmark = Bookmark.new
     @bookmark.topic_id = @topic.id
     @bookmark.url = @url.strip
+    @bookmark.user = @user
     @bookmark.save!
 
     head 200
